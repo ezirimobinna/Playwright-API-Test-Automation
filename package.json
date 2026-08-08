@@ -1,0 +1,28 @@
+{
+  "name": "playwrightapitest",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  
+  "scripts": {
+  "test": "playwright test",
+  "clean:allure": "powershell -Command \"Remove-Item -Recurse -Force allure-results\\* -ErrorAction SilentlyContinue; Remove-Item -Recurse -Force allure-report\\* -ErrorAction SilentlyContinue\"",
+  "test:clean": "npm run clean:allure && playwright test",
+  "allure:generate": "allure generate allure-results --clean -o allure-report",
+  "allure:open": "allure open allure-report",
+  "test:report": "npm run test:clean && npm run allure:generate && npm run allure:open"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^10.5.0",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.1.2",
+    "allure-playwright": "^3.10.2"
+  },
+  "dependencies": {
+    "luxon": "^3.7.2"
+  }
+}

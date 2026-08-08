@@ -1,0 +1,90 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: put_request_api.spec.js >> Verify that user can update the details from the server
+- Location: tests\put_request_api.spec.js:6:1
+
+# Error details
+
+```
+ReferenceError: requestBody is not defined
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | import tokenResponseBody from '../test-data/put_request_body.json' with { type: 'json' };
+  3  | import { stringFormat } from '../utils/common';
+  4  | 
+  5  | 
+  6  | test('Verify that user can update the details from the server', async ({ request }) => {
+  7  | 
+> 8  |     const dynamicRequestJasonBody = stringFormat(JSON.stringify(requestBody),"Festus","Mbah","banana")
+     |                                                                 ^ ReferenceError: requestBody is not defined
+  9  | 
+  10 | 
+  11 |     //Creating Post request by passing JSON request data
+  12 |     const postAPIResponse = await request.post(`/booking`, {
+  13 | 
+  14 |         data: JSON.parse(dynamicRequestJasonBody)
+  15 |     })
+  16 |     
+  17 |     //This is to validate response status --- ok & 200 value
+  18 |     expect (postAPIResponse.ok()).toBeTruthy();
+  19 |     expect (postAPIResponse.status()).toBe(200);
+  20 | 
+  21 | 
+  22 |     const postAPIresponsBody = await postAPIResponse.json();
+  23 |     console.log(postAPIresponsBody);
+  24 | 
+  25 |     const bId = postAPIresponsBody.bookingid;
+  26 | 
+  27 |     //This is to validate response body
+  28 |     expect(postAPIresponsBody.booking).toHaveProperty("firstname", "Festus");
+  29 |     expect(postAPIresponsBody.booking).toHaveProperty("lastname", "Mbah");
+  30 |     expect(postAPIresponsBody.booking).toHaveProperty("totalprice", 1000);
+  31 |     expect(postAPIresponsBody.booking).toHaveProperty("depositpaid", true);
+  32 | 
+  33 | 
+  34 |     expect(postAPIresponsBody.booking.bookingdates).toHaveProperty("checkin", "2018-01-01");
+  35 |     expect(postAPIresponsBody.booking.bookingdates).toHaveProperty("checkout", "2019-01-01");
+  36 | 
+  37 |      console.log("=========================================================");
+  38 |     
+  39 |     const getAPIResponse = await request.get(`/booking`, {
+  40 |         params: {
+  41 |             "firstname": "ewtyrueio",
+  42 |             "lastname": "gdfrtye"
+  43 |         }
+  44 |             });
+  45 | 
+  46 |     expect(getAPIResponse.ok()).toBeTruthy();
+  47 |     expect(getAPIResponse.status()).toBe(200);
+  48 | 
+  49 |     const getAPIResponseBody = await getAPIResponse.json();
+  50 | 
+  51 |     console.log(getAPIResponseBody);
+  52 | 
+  53 |     // Validate that at least one booking was found
+  54 |    // expect(getAPIResponseBody.length).toBeGreaterThan(0);
+  55 | 
+  56 |    // Validate that when on booking was found when random value is used
+  57 |    expect(getAPIResponseBody).toEqual([]);
+  58 |    
+  59 |    //Generate token
+  60 |    const tokenResponse = await request.post(`/auth`,{
+  61 |     data: tokenResponseBody
+  62 |    })
+  63 | 
+  64 |    const tokenAPIResponseBody = await tokenResponse.json();
+  65 |    const tokenNum = tokenAPIResponseBody.token;
+  66 |    console.log(tokenNum);
+  67 |    
+  68 | })
+```
