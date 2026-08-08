@@ -1,9 +1,46 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="3.3580550000000002">
-<testsuite name="delete_request_api.spec.js" timestamp="2026-08-08T16:00:17.754Z" hostname="chromium" tests="1" failures="0" skipped="0" time="2.733" errors="0">
-<testcase name="Verify user can use delete details with valid token" classname="delete_request_api.spec.js" time="2.733">
+<testsuites id="" name="" tests="9" failures="0" skipped="0" errors="0" time="6.201751">
+<testsuite name="delete_request_api.spec.js" timestamp="2026-08-08T17:26:00.552Z" hostname="chromium" tests="1" failures="0" skipped="0" time="4.326" errors="0">
+<testcase name="DELETE Booking - Verify user can delete booking with valid authentication token" classname="delete_request_api.spec.js" time="4.326">
+<system-out>
+<![CDATA[POST Response: {
+  bookingid: [33m2787[39m,
+  booking: {
+    firstname: [32m'Festus'[39m,
+    lastname: [32m'Mbah'[39m,
+    totalprice: [33m1000[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+    additionalneeds: [32m'banana'[39m
+  }
+}
+GET Response: {
+  firstname: [32m'Festus'[39m,
+  lastname: [32m'Mbah'[39m,
+  totalprice: [33m1000[39m,
+  depositpaid: [33mtrue[39m,
+  bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+  additionalneeds: [32m'banana'[39m
+}
+PATCH Response: {
+  firstname: [32m'Grace'[39m,
+  lastname: [32m'Mbah'[39m,
+  totalprice: [33m1000[39m,
+  depositpaid: [33mtrue[39m,
+  bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+  additionalneeds: [32m'banana'[39m
+}
+DELETE Response: 201 Created
+
+[[ATTACHMENT|test-results\delete_request_api-DELETE--91730--valid-authentication-token-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="get_request_api.spec.js" timestamp="2026-08-08T17:26:00.552Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.75" errors="0">
+<testcase name="Verify that user can getting booking details" classname="get_request_api.spec.js" time="1.75">
 <system-out>
 <![CDATA[{
-  bookingid: [33m5024[39m,
+  bookingid: [33m2772[39m,
   booking: {
     firstname: [32m'Paul Kelvin'[39m,
     lastname: [32m'Denis Poll'[39m,
@@ -22,7 +59,36 @@
   bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
   additionalneeds: [32m'super bowls'[39m
 }
-This is the token: 99f88cdb597ae7e
+
+[[ATTACHMENT|test-results\get_request_api-Verify-that-user-can-getting-booking-details-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="patch_request_api.spec.js" timestamp="2026-08-08T17:26:00.552Z" hostname="chromium" tests="1" failures="0" skipped="0" time="2.237" errors="0">
+<testcase name="Verify user can use Patch api to update details with valid token" classname="patch_request_api.spec.js" time="2.237">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2771[39m,
+  booking: {
+    firstname: [32m'Paul Kelvin'[39m,
+    lastname: [32m'Denis Poll'[39m,
+    totalprice: [33m1000[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+    additionalneeds: [32m'super bowls'[39m
+  }
+}
+=========================================================
+{
+  firstname: [32m'Paul Kelvin'[39m,
+  lastname: [32m'Denis Poll'[39m,
+  totalprice: [33m1000[39m,
+  depositpaid: [33mtrue[39m,
+  bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+  additionalneeds: [32m'super bowls'[39m
+}
+This is the token: c9a7c599667190d
 ==PATCH API CALL==
 {
   firstname: [32m'Grace'[39m,
@@ -32,7 +98,149 @@ This is the token: 99f88cdb597ae7e
   bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
   additionalneeds: [32m'super bowls'[39m
 }
-==DELETE API CALL==
+
+[[ATTACHMENT|test-results\patch_request_api-Verify-u-9fda6-te-details-with-valid-token-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="post_request_api_01.spec.js" timestamp="2026-08-08T17:26:00.552Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.288" errors="0">
+<testcase name="Verify that user can creat a booking ticket using Static JSON file" classname="post_request_api_01.spec.js" time="1.288">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2769[39m,
+  booking: {
+    firstname: [32m'Paul Kelvin'[39m,
+    lastname: [32m'Denis Poll'[39m,
+    totalprice: [33m1000[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+    additionalneeds: [32m'super bowls'[39m
+  }
+}
+
+[[ATTACHMENT|test-results\post_request_api_01-Verify-25a61-cket-using-Static-JSON-file-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="post_request_api_02.spec.js" timestamp="2026-08-08T17:26:00.552Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.355" errors="0">
+<testcase name="Verify that user can creat a booking ticket using dynamic data" classname="post_request_api_02.spec.js" time="1.355">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2775[39m,
+  booking: {
+    firstname: [32m'Keith'[39m,
+    lastname: [32m'Kling'[39m,
+    totalprice: [33m902[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-08-08'[39m, checkout: [32m'2026-08-13'[39m },
+    additionalneeds: [32m'super bowls'[39m
+  }
+}
+
+[[ATTACHMENT|test-results\post_request_api_02-Verify-48f4c-g-ticket-using-dynamic-data-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="post_request_api_03.spec.js" timestamp="2026-08-08T17:26:00.552Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.81" errors="0">
+<testcase name="Verify that user can creat a booking ticket using Static JSON file" classname="post_request_api_03.spec.js" time="1.81">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2774[39m,
+  booking: {
+    firstname: [32m'Festus'[39m,
+    lastname: [32m'Mbah'[39m,
+    totalprice: [33m1000[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+    additionalneeds: [32m'banana'[39m
+  }
+}
+
+[[ATTACHMENT|test-results\post_request_api_03-Verify-fba6b-cket-using-Static-JSON-file-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="post_request_api.spec.js" timestamp="2026-08-08T17:26:00.552Z" hostname="chromium" tests="1" failures="0" skipped="0" time="0.347" errors="0">
+<testcase name="Verify that user can creat a booking ticket" classname="post_request_api.spec.js" time="0.347">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2776[39m,
+  booking: {
+    firstname: [32m'Paul Kelvin'[39m,
+    lastname: [32m'Denis Poll'[39m,
+    totalprice: [33m1000[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+    additionalneeds: [32m'super bowls'[39m
+  }
+}
+
+[[ATTACHMENT|test-results\post_request_api-Verify-that-user-can-creat-a-booking-ticket-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="put_request_api.spec.js" timestamp="2026-08-08T17:26:00.552Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.738" errors="0">
+<testcase name="Verify that user can update/put details with valid" classname="put_request_api.spec.js" time="1.738">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2779[39m,
+  booking: {
+    firstname: [32m'Paul Kelvin'[39m,
+    lastname: [32m'Denis Poll'[39m,
+    totalprice: [33m1000[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+    additionalneeds: [32m'super bowls'[39m
+  }
+}
+=========================================================
+{
+  firstname: [32m'Paul Kelvin'[39m,
+  lastname: [32m'Denis Poll'[39m,
+  totalprice: [33m1000[39m,
+  depositpaid: [33mtrue[39m,
+  bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+  additionalneeds: [32m'super bowls'[39m
+}
+This is the token: b5a7317fcbf7ba4
+==PUT API CALL==
+{
+  firstname: [32m'Specflow'[39m,
+  lastname: [32m'Selenium C#'[39m,
+  totalprice: [33m111[39m,
+  depositpaid: [33mtrue[39m,
+  bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+  additionalneeds: [32m'super bowls'[39m
+}
+
+[[ATTACHMENT|test-results\put_request_api-Verify-tha-6c886-date-put-details-with-valid-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="query_parameters.spec.js" timestamp="2026-08-08T17:26:00.552Z" hostname="chromium" tests="1" failures="0" skipped="0" time="0.602" errors="0">
+<testcase name="Verify that user can get query parameters" classname="query_parameters.spec.js" time="0.602">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2780[39m,
+  booking: {
+    firstname: [32m'Festus'[39m,
+    lastname: [32m'Mbah'[39m,
+    totalprice: [33m1000[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+    additionalneeds: [32m'banana'[39m
+  }
+}
+=========================================================
+[]
+
+[[ATTACHMENT|test-results\query_parameters-Verify-that-user-can-get-query-parameters-chromium\trace.zip]]
 ]]>
 </system-out>
 </testcase>

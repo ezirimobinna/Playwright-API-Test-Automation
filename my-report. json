@@ -3,8 +3,7 @@
     "argv": [
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\node_modules\\@playwright\\test\\cli.js",
-      "test",
-      "tests/delete_request_api.spec.js"
+      "test"
     ],
     "configFile": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\playwright.config.js",
     "rootDir": "C:/Users/LENOVO/OneDrive/Desktop/PlaywrightAPITest/tests",
@@ -18,7 +17,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 6
     },
     "preserveOutput": "always",
     "projects": [
@@ -27,7 +26,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 6
         },
         "id": "chromium",
         "name": "chromium",
@@ -36,7 +35,7 @@
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 30000
+        "timeout": 300000
       }
     ],
     "quiet": false,
@@ -89,12 +88,12 @@
       "line": 0,
       "specs": [
         {
-          "title": "Verify user can use delete details with valid token",
+          "title": "DELETE Booking - Verify user can delete booking with valid authentication token",
           "ok": true,
           "tags": [],
           "tests": [
             {
-              "timeout": 30000,
+              "timeout": 300000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "chromium",
@@ -104,11 +103,191 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2733,
+                  "duration": 4326,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "{\n  bookingid: \u001b[33m5024\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
+                      "text": "POST Response: {\n  bookingid: \u001b[33m2787\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Festus'\u001b[39m,\n    lastname: \u001b[32m'Mbah'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'banana'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "GET Response: {\n  firstname: \u001b[32m'Festus'\u001b[39m,\n  lastname: \u001b[32m'Mbah'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'banana'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "PATCH Response: {\n  firstname: \u001b[32m'Grace'\u001b[39m,\n  lastname: \u001b[32m'Mbah'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'banana'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "DELETE Response: 201 Created\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Create a new booking using POST /booking",
+                      "duration": 2773
+                    },
+                    {
+                      "title": "Retrieve created booking using GET /booking/2787",
+                      "duration": 327
+                    },
+                    {
+                      "title": "Generate authentication token using POST /auth",
+                      "duration": 274
+                    },
+                    {
+                      "title": "Update booking using PATCH /booking/2787",
+                      "duration": 297
+                    },
+                    {
+                      "title": "Delete booking using DELETE /booking/2787",
+                      "duration": 284
+                    },
+                    {
+                      "title": "Verify booking 2787 has been deleted",
+                      "duration": 248
+                    }
+                  ],
+                  "startTime": "2026-08-08T17:26:01.926Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "POST - Response Body",
+                      "contentType": "application/json",
+                      "body": "ewogICJib29raW5naWQiOiAyNzg3LAogICJib29raW5nIjogewogICAgImZpcnN0bmFtZSI6ICJGZXN0dXMiLAogICAgImxhc3RuYW1lIjogIk1iYWgiLAogICAgInRvdGFscHJpY2UiOiAxMDAwLAogICAgImRlcG9zaXRwYWlkIjogdHJ1ZSwKICAgICJib29raW5nZGF0ZXMiOiB7CiAgICAgICJjaGVja2luIjogIjIwMTgtMDEtMDEiLAogICAgICAiY2hlY2tvdXQiOiAiMjAxOS0wMS0wMSIKICAgIH0sCiAgICAiYWRkaXRpb25hbG5lZWRzIjogImJhbmFuYSIKICB9Cn0="
+                    },
+                    {
+                      "name": "Created Booking ID",
+                      "contentType": "text/plain",
+                      "body": "Mjc4Nw=="
+                    },
+                    {
+                      "name": "GET - Response Body",
+                      "contentType": "application/json",
+                      "body": "ewogICJmaXJzdG5hbWUiOiAiRmVzdHVzIiwKICAibGFzdG5hbWUiOiAiTWJhaCIsCiAgInRvdGFscHJpY2UiOiAxMDAwLAogICJkZXBvc2l0cGFpZCI6IHRydWUsCiAgImJvb2tpbmdkYXRlcyI6IHsKICAgICJjaGVja2luIjogIjIwMTgtMDEtMDEiLAogICAgImNoZWNrb3V0IjogIjIwMTktMDEtMDEiCiAgfSwKICAiYWRkaXRpb25hbG5lZWRzIjogImJhbmFuYSIKfQ=="
+                    },
+                    {
+                      "name": "Authentication",
+                      "contentType": "text/plain",
+                      "body": "QXV0aGVudGljYXRpb24gdG9rZW4gZ2VuZXJhdGVkIHN1Y2Nlc3NmdWxseQ=="
+                    },
+                    {
+                      "name": "PATCH - Response Body",
+                      "contentType": "application/json",
+                      "body": "ewogICJmaXJzdG5hbWUiOiAiR3JhY2UiLAogICJsYXN0bmFtZSI6ICJNYmFoIiwKICAidG90YWxwcmljZSI6IDEwMDAsCiAgImRlcG9zaXRwYWlkIjogdHJ1ZSwKICAiYm9va2luZ2RhdGVzIjogewogICAgImNoZWNraW4iOiAiMjAxOC0wMS0wMSIsCiAgICAiY2hlY2tvdXQiOiAiMjAxOS0wMS0wMSIKICB9LAogICJhZGRpdGlvbmFsbmVlZHMiOiAiYmFuYW5hIgp9"
+                    },
+                    {
+                      "name": "DELETE - Response",
+                      "contentType": "application/json",
+                      "body": "ewogICJzdGF0dXMiOiAyMDEsCiAgInN0YXR1c1RleHQiOiAiQ3JlYXRlZCIKfQ=="
+                    },
+                    {
+                      "name": "DELETE - Verification",
+                      "contentType": "text/plain",
+                      "body": "Qm9va2luZyAyNzg3IHdhcyBzdWNjZXNzZnVsbHkgZGVsZXRlZC4gR0VUIHJlcXVlc3QgcmV0dXJuZWQgNDA0Lg=="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\test-results\\delete_request_api-DELETE--91730--valid-authentication-token-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c6a473807d041e2e8fe9-ffc60b03700ef5408df5",
+          "file": "delete_request_api.spec.js",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "get_request_api.spec.js",
+      "file": "get_request_api.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify that user can getting booking details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1750,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2772\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "=========================================================\n"
+                    },
+                    {
+                      "text": "{\n  firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n  lastname: \u001b[32m'Denis Poll'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-08T17:26:01.977Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\test-results\\get_request_api-Verify-that-user-can-getting-booking-details-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "60f96a1cf2a0acc19070-e1ad9731817800c33796",
+          "file": "get_request_api.spec.js",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "patch_request_api.spec.js",
+      "file": "patch_request_api.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify user can use Patch api to update details with valid token",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2237,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2771\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
                     },
                     {
                       "text": "=========================================================\n"
@@ -117,31 +296,367 @@
                       "text": "{\n  firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n  lastname: \u001b[32m'Denis Poll'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
                     },
                     {
-                      "text": "This is the token: 99f88cdb597ae7e\n"
+                      "text": "This is the token: c9a7c599667190d\n"
                     },
                     {
                       "text": "==PATCH API CALL==\n"
                     },
                     {
                       "text": "{\n  firstname: \u001b[32m'Grace'\u001b[39m,\n  lastname: \u001b[32m'Denis Poll'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
-                    },
-                    {
-                      "text": "==DELETE API CALL==\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-08T16:00:18.235Z",
+                  "startTime": "2026-08-08T17:26:02.059Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\test-results\\patch_request_api-Verify-u-9fda6-te-details-with-valid-token-chromium\\trace.zip"
+                    }
+                  ]
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "c6a473807d041e2e8fe9-48dc793b2c42af618b0e",
-          "file": "delete_request_api.spec.js",
+          "id": "9a095a3db875aea49dae-cf10d1a24115a584c1c2",
+          "file": "patch_request_api.spec.js",
           "line": 8,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "post_request_api_01.spec.js",
+      "file": "post_request_api_01.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify that user can creat a booking ticket using Static JSON file",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1288,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2769\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-08T17:26:02.013Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\test-results\\post_request_api_01-Verify-25a61-cket-using-Static-JSON-file-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a5fd15390ef1c84eb527-c49c4bf35de9905d952b",
+          "file": "post_request_api_01.spec.js",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "post_request_api_02.spec.js",
+      "file": "post_request_api_02.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify that user can creat a booking ticket using dynamic data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1355,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2775\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Keith'\u001b[39m,\n    lastname: \u001b[32m'Kling'\u001b[39m,\n    totalprice: \u001b[33m902\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-08-08'\u001b[39m, checkout: \u001b[32m'2026-08-13'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-08T17:26:02.445Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\test-results\\post_request_api_02-Verify-48f4c-g-ticket-using-dynamic-data-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "59fddc05f3bbf8f895b0-62c7eda2cdf3e7a107d8",
+          "file": "post_request_api_02.spec.js",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "post_request_api_03.spec.js",
+      "file": "post_request_api_03.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify that user can creat a booking ticket using Static JSON file",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 1810,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2774\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Festus'\u001b[39m,\n    lastname: \u001b[32m'Mbah'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'banana'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-08T17:26:01.940Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\test-results\\post_request_api_03-Verify-fba6b-cket-using-Static-JSON-file-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f099d93149a8f5ddbde4-fb14ce6b3f358d30cdcc",
+          "file": "post_request_api_03.spec.js",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "post_request_api.spec.js",
+      "file": "post_request_api.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify that user can creat a booking ticket",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 347,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2776\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-08T17:26:03.491Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\test-results\\post_request_api-Verify-that-user-can-creat-a-booking-ticket-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e60ab867db9584af5c5d-7a39b169a99b4a7db685",
+          "file": "post_request_api.spec.js",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "put_request_api.spec.js",
+      "file": "put_request_api.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify that user can update/put details with valid",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1738,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2779\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "=========================================================\n"
+                    },
+                    {
+                      "text": "{\n  firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n  lastname: \u001b[32m'Denis Poll'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "This is the token: b5a7317fcbf7ba4\n"
+                    },
+                    {
+                      "text": "==PUT API CALL==\n"
+                    },
+                    {
+                      "text": "{\n  firstname: \u001b[32m'Specflow'\u001b[39m,\n  lastname: \u001b[32m'Selenium C#'\u001b[39m,\n  totalprice: \u001b[33m111\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-08T17:26:03.907Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\test-results\\put_request_api-Verify-tha-6c886-date-put-details-with-valid-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ed8cf27c21df110bd87-6eb28bf8016a0df84664",
+          "file": "put_request_api.spec.js",
+          "line": 8,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "query_parameters.spec.js",
+      "file": "query_parameters.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify that user can get query parameters",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 602,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2780\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Festus'\u001b[39m,\n    lastname: \u001b[32m'Mbah'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'banana'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "=========================================================\n"
+                    },
+                    {
+                      "text": "[]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-08T17:26:03.941Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\test-results\\query_parameters-Verify-that-user-can-get-query-parameters-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "046cb9a2361ee9d4d297-7587528b44ffcdb08c97",
+          "file": "query_parameters.spec.js",
+          "line": 6,
           "column": 1
         }
       ]
@@ -149,9 +664,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-08T16:00:17.698Z",
-    "duration": 3358.0550000000003,
-    "expected": 1,
+    "startTime": "2026-08-08T17:26:00.240Z",
+    "duration": 6201.751,
+    "expected": 9,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
