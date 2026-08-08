@@ -1,0 +1,30 @@
+{
+  bookingid: 2236,
+  booking: {
+    firstname: 'Paul Kelvin',
+    lastname: 'Denis Poll',
+    totalprice: 1000,
+    depositpaid: true,
+    bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+    additionalneeds: 'super bowls'
+  }
+}
+=========================================================
+{
+  firstname: 'Paul Kelvin',
+  lastname: 'Denis Poll',
+  totalprice: 1000,
+  depositpaid: true,
+  bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+  additionalneeds: 'super bowls'
+}
+This is the token: df7e850ee402d45
+==PUT API CALL==
+{
+  firstname: 'Specflow',
+  lastname: 'Selenium C#',
+  totalprice: 111,
+  depositpaid: true,
+  bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+  additionalneeds: 'super bowls'
+}

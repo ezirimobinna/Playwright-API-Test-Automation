@@ -1,0 +1,11 @@
+{
+  bookingid: 2227,
+  booking: {
+    firstname: 'Grace',
+    lastname: 'Hills',
+    totalprice: 461,
+    depositpaid: true,
+    bookingdates: { checkin: '2026-08-08', checkout: '2026-08-13' },
+    additionalneeds: 'super bowls'
+  }
+}

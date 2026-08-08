@@ -1,9 +1,9 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="2.7071970000000003">
-<testsuite name="patch_request_api.spec.js" timestamp="2026-08-08T12:27:52.583Z" hostname="chromium" tests="1" failures="0" skipped="0" time="2.083" errors="0">
-<testcase name="Verify user can use Patch api to update details with valid token" classname="patch_request_api.spec.js" time="2.083">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="3.3580550000000002">
+<testsuite name="delete_request_api.spec.js" timestamp="2026-08-08T16:00:17.754Z" hostname="chromium" tests="1" failures="0" skipped="0" time="2.733" errors="0">
+<testcase name="Verify user can use delete details with valid token" classname="delete_request_api.spec.js" time="2.733">
 <system-out>
 <![CDATA[{
-  bookingid: [33m3718[39m,
+  bookingid: [33m5024[39m,
   booking: {
     firstname: [32m'Paul Kelvin'[39m,
     lastname: [32m'Denis Poll'[39m,
@@ -22,7 +22,7 @@
   bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
   additionalneeds: [32m'super bowls'[39m
 }
-This is the token: c339f1de3d1a563
+This is the token: 99f88cdb597ae7e
 ==PATCH API CALL==
 {
   firstname: [32m'Grace'[39m,
@@ -32,6 +32,7 @@ This is the token: c339f1de3d1a563
   bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
   additionalneeds: [32m'super bowls'[39m
 }
+==DELETE API CALL==
 ]]>
 </system-out>
 </testcase>

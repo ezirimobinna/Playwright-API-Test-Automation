@@ -4,7 +4,7 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "tests/patch_request_api.spec.js"
+      "tests/delete_request_api.spec.js"
     ],
     "configFile": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\playwright.config.js",
     "rootDir": "C:/Users/LENOVO/OneDrive/Desktop/PlaywrightAPITest/tests",
@@ -83,13 +83,13 @@
   },
   "suites": [
     {
-      "title": "patch_request_api.spec.js",
-      "file": "patch_request_api.spec.js",
+      "title": "delete_request_api.spec.js",
+      "file": "delete_request_api.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Verify user can use Patch api to update details with valid token",
+          "title": "Verify user can use delete details with valid token",
           "ok": true,
           "tags": [],
           "tests": [
@@ -104,11 +104,11 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2083,
+                  "duration": 2733,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "{\n  bookingid: \u001b[33m3718\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
+                      "text": "{\n  bookingid: \u001b[33m5024\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
                     },
                     {
                       "text": "=========================================================\n"
@@ -117,18 +117,21 @@
                       "text": "{\n  firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n  lastname: \u001b[32m'Denis Poll'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
                     },
                     {
-                      "text": "This is the token: c339f1de3d1a563\n"
+                      "text": "This is the token: 99f88cdb597ae7e\n"
                     },
                     {
                       "text": "==PATCH API CALL==\n"
                     },
                     {
                       "text": "{\n  firstname: \u001b[32m'Grace'\u001b[39m,\n  lastname: \u001b[32m'Denis Poll'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "==DELETE API CALL==\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-08T12:27:53.034Z",
+                  "startTime": "2026-08-08T16:00:18.235Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -136,8 +139,8 @@
               "status": "expected"
             }
           ],
-          "id": "9a095a3db875aea49dae-cf10d1a24115a584c1c2",
-          "file": "patch_request_api.spec.js",
+          "id": "c6a473807d041e2e8fe9-48dc793b2c42af618b0e",
+          "file": "delete_request_api.spec.js",
           "line": 8,
           "column": 1
         }
@@ -146,8 +149,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-08T12:27:52.503Z",
-    "duration": 2707.197,
+    "startTime": "2026-08-08T16:00:17.698Z",
+    "duration": 3358.0550000000003,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

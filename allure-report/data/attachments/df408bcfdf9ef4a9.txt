@@ -1,0 +1,11 @@
+{
+  bookingid: 2229,
+  booking: {
+    firstname: 'Paul Kelvin',
+    lastname: 'Denis Poll',
+    totalprice: 1000,
+    depositpaid: true,
+    bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+    additionalneeds: 'super bowls'
+  }
+}
