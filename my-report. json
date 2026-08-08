@@ -4,7 +4,7 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "tests/put_request_api.spec.js"
+      "tests/patch_request_api.spec.js"
     ],
     "configFile": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\PlaywrightAPITest\\playwright.config.js",
     "rootDir": "C:/Users/LENOVO/OneDrive/Desktop/PlaywrightAPITest/tests",
@@ -83,13 +83,13 @@
   },
   "suites": [
     {
-      "title": "put_request_api.spec.js",
-      "file": "put_request_api.spec.js",
+      "title": "patch_request_api.spec.js",
+      "file": "patch_request_api.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Verify that user can update/put details",
+          "title": "Verify user can use Patch api to update details with valid token",
           "ok": true,
           "tags": [],
           "tests": [
@@ -104,11 +104,11 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2314,
+                  "duration": 2083,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "{\n  bookingid: \u001b[33m514\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
+                      "text": "{\n  bookingid: \u001b[33m3718\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n    lastname: \u001b[32m'Denis Poll'\u001b[39m,\n    totalprice: \u001b[33m1000\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n    additionalneeds: \u001b[32m'super bowls'\u001b[39m\n  }\n}\n"
                     },
                     {
                       "text": "=========================================================\n"
@@ -117,18 +117,18 @@
                       "text": "{\n  firstname: \u001b[32m'Paul Kelvin'\u001b[39m,\n  lastname: \u001b[32m'Denis Poll'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
                     },
                     {
-                      "text": "This is the token: 5b2647da5d2e44a\n"
+                      "text": "This is the token: c339f1de3d1a563\n"
                     },
                     {
-                      "text": "==PUT API CALL==\n"
+                      "text": "==PATCH API CALL==\n"
                     },
                     {
-                      "text": "{\n  firstname: \u001b[32m'Specflow'\u001b[39m,\n  lastname: \u001b[32m'Selenium C#'\u001b[39m,\n  totalprice: \u001b[33m111\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
+                      "text": "{\n  firstname: \u001b[32m'Grace'\u001b[39m,\n  lastname: \u001b[32m'Denis Poll'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'super bowls'\u001b[39m\n}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-08T00:52:03.495Z",
+                  "startTime": "2026-08-08T12:27:53.034Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -136,8 +136,8 @@
               "status": "expected"
             }
           ],
-          "id": "8ed8cf27c21df110bd87-fb0b25fd61914dc58c44",
-          "file": "put_request_api.spec.js",
+          "id": "9a095a3db875aea49dae-cf10d1a24115a584c1c2",
+          "file": "patch_request_api.spec.js",
           "line": 8,
           "column": 1
         }
@@ -146,8 +146,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-08T00:52:02.793Z",
-    "duration": 3112.709,
+    "startTime": "2026-08-08T12:27:52.503Z",
+    "duration": 2707.197,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

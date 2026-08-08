@@ -3,9 +3,9 @@ import requestBody from '../test-data/post_request_body.json' with { type: 'json
 import tokenResponseBody from '../test-data/token_request_body.json' with { type: 'json' };
 import { stringFormat } from '../utils/common';
 import putRequestBody from '../test-data/put_request_body.json' with { type: 'json' };
+import patchRequestBody from '../test-data/patch_request_body.json' with { type: 'json' };
 
-
-test('Verify that user can update/put details with valid', async ({ request }) => {
+test('Verify user can use Patch api to update details with valid token', async ({ request }) => {
 
      const dynamicRequestJasonBody = stringFormat(JSON.stringify(requestBody),"Festus","Mbah","banana")
 
@@ -20,10 +20,11 @@ test('Verify that user can update/put details with valid', async ({ request }) =
     expect (postAPIResponse.ok()).toBeTruthy();
     expect (postAPIResponse.status()).toBe(200);
 
-
+    //Printing the api response details of the api
     const postAPIresponsBody = await postAPIResponse.json();
     console.log(postAPIresponsBody);
 
+    //Storing the booking ID
     const bId = postAPIresponsBody.bookingid;
 
     //This is to validate response body
@@ -56,23 +57,23 @@ test('Verify that user can update/put details with valid', async ({ request }) =
     const tokenValue = await tokenNum.token;
     console.log("This is the token: "+tokenValue);
     
-    //PUT api call
-    console.log("==PUT API CALL==");
+    //PATCH api call
+    console.log("==PATCH API CALL==");
     
-    const putResponse = await request.put(`/booking/${bId}`,{
+    const patchResponse = await request.patch(`/booking/${bId}`,{
 
         headers: {
             "Content-Type":"application/json",
             "Cookie":`token=${tokenValue}`
         },
 
-        data: putRequestBody
+        data: patchRequestBody
     })
 
-    const putResponseBody = await putResponse.json();
+    const patchAPIResponseBody = await patchResponse.json();
 
-    console.log(putResponseBody);
+    console.log(patchAPIResponseBody);
 
-    expect(putResponse.status()).toBe(200);
+    expect(patchResponse.status()).toBe(200);
     
 })
