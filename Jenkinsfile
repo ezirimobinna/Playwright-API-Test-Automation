@@ -27,12 +27,18 @@ pipeline {
                 bat 'npx playwright test'
             }
         }
-
     }
 
     post {
         always {
+
             echo 'Playwright test execution completed.'
+
+            allure([
+                results: [[path: 'allure-results']],
+                includeProperties: false,
+                reportBuildPolicy: 'ALWAYS'
+            ])
         }
     }
 }
