@@ -30,15 +30,13 @@ pipeline {
     }
 
     post {
+
         always {
 
             echo 'Playwright test execution completed.'
 
-            allure([
-                results: [[path: 'allure-results']],
-                includeProperties: false,
-                reportBuildPolicy: 'ALWAYS'
-            ])
+            // Publish Allure Report
+            allure results: [[path: 'allure-results']]
         }
     }
 }
