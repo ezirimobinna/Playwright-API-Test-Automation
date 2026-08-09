@@ -22,12 +22,6 @@ pipeline {
             }
         }
 
-        stage('Clean Allure Results') {
-            steps {
-                bat 'if exist allure-results rmdir /s /q allure-results'
-            }
-        }
-
         stage('Run Playwright Tests') {
             steps {
                 bat 'npx playwright test'
@@ -38,6 +32,14 @@ pipeline {
     post {
         always {
             echo 'Playwright test execution completed.'
+
+            allure([
+                includeProperties: false,
+                jdk: '',
+                results: [
+                    [path: 'allure-results']
+                ]
+            ])
         }
     }
 }
