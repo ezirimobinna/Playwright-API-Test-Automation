@@ -1,0 +1,30 @@
+{
+  bookingid: 3089,
+  booking: {
+    firstname: 'Paul Kelvin',
+    lastname: 'Denis Poll',
+    totalprice: 1000,
+    depositpaid: true,
+    bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+    additionalneeds: 'super bowls'
+  }
+}
+=========================================================
+{
+  firstname: 'Paul Kelvin',
+  lastname: 'Denis Poll',
+  totalprice: 1000,
+  depositpaid: true,
+  bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+  additionalneeds: 'super bowls'
+}
+This is the token: 6c2501e618406bf
+==PATCH API CALL==
+{
+  firstname: 'Grace',
+  lastname: 'Denis Poll',
+  totalprice: 1000,
+  depositpaid: true,
+  bookingdates: { checkin: '2018-01-01', checkout: '2019-01-01' },
+  additionalneeds: 'super bowls'
+}

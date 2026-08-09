@@ -1,0 +1,14 @@
+{
+  "bookingid": 4991,
+  "booking": {
+    "firstname": "Festus",
+    "lastname": "Mbah",
+    "totalprice": 1000,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2018-01-01",
+      "checkout": "2019-01-01"
+    },
+    "additionalneeds": "banana"
+  }
+}

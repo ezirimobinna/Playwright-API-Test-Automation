@@ -1,0 +1,1 @@
+Booking 4991 was successfully deleted. GET request returned 404.
